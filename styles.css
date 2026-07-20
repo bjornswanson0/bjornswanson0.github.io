@@ -117,9 +117,34 @@ a:hover { color: var(--accent-deep); }
 /* ---------- hero ---------- */
 
 .hero {
-  max-width: var(--measure);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20rem;
+  gap: 3.5rem;
+  align-items: center;
+  max-width: var(--wide);
   margin: 0 auto;
-  padding: 7rem 1.5rem 6rem;
+  padding: 5.5rem 1.5rem 5rem;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--hairline);
+  box-shadow: 0 18px 44px rgba(28, 27, 24, 0.12);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .hero-photo {
+    order: -1;
+    max-width: 15rem;
+  }
 }
 
 .hero h1 {
