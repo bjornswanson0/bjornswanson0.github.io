@@ -118,7 +118,7 @@ a:hover { color: var(--accent-deep); }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 20rem;
+  grid-template-columns: minmax(0, 1fr) 16rem;
   gap: 3.5rem;
   align-items: center;
   max-width: var(--wide);
@@ -143,7 +143,7 @@ a:hover { color: var(--accent-deep); }
 
   .hero-photo {
     order: -1;
-    max-width: 15rem;
+    max-width: 12rem;
   }
 }
 
