@@ -241,8 +241,12 @@ h2 {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .card-grid { grid-template-columns: 1fr; }
 }
 
 .card {
@@ -266,6 +270,37 @@ h2 {
 }
 
 .card p { font-size: 0.98rem; color: var(--ink-soft); }
+
+/* ---------- quotes ---------- */
+
+.quote-list {
+  display: grid;
+  gap: 2.2rem;
+  margin-top: 2rem;
+}
+
+.quote-list blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.4rem;
+}
+
+.quote-list blockquote p {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.quote-list cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
 
 /* ---------- connect ---------- */
 
