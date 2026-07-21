@@ -137,7 +137,7 @@ a:hover { color: var(--accent-deep); }
   inset: 0;
   transform: translate(11px, 11px);
   border: 1.5px solid var(--accent);
-  border-radius: 50% 50% 14px 14px / 33.4% 33.4% 10px 10px;
+  border-radius: 50% 50% 14px 14px / 37.5% 37.5% 10px 10px;
   opacity: 0.5;
   pointer-events: none;
 }
@@ -146,8 +146,8 @@ a:hover { color: var(--accent-deep); }
   display: block;
   width: 100%;
   height: auto;
-  /* arch: semicircular top on a 2:3 photo, gently rounded base */
-  border-radius: 50% 50% 14px 14px / 33.4% 33.4% 10px 10px;
+  /* arch: semicircular top on a 3:4 photo, gently rounded base */
+  border-radius: 50% 50% 14px 14px / 37.5% 37.5% 10px 10px;
   border: 1px solid var(--hairline);
   box-shadow: 0 14px 34px rgba(28, 27, 24, 0.1);
 }
