@@ -1,6 +1,6 @@
 /* ============================================================
    Bjorn Swanson — personal site
-   Clean & editorial: light ground, ink text, one spruce accent
+   Clean & editorial: light ground, ink text, one denim-blue accent
    ============================================================ */
 
 :root {
@@ -8,8 +8,8 @@
   --bg-raised: #ffffff;
   --ink: #1c1b18;
   --ink-soft: #6b6862;
-  --accent: #1d5c4d;
-  --accent-deep: #123f34;
+  --accent: #3a76a6;
+  --accent-deep: #2a5a82;
   --hairline: #e5e2da;
   --ph-bg: #fdf6e3;
   --ph-border: #d9c37a;
@@ -130,7 +130,7 @@ a:hover { color: var(--accent-deep); }
   position: relative;
 }
 
-/* offset spruce keyline behind the photo */
+/* offset blue keyline behind the photo */
 .hero-photo::before {
   content: "";
   position: absolute;
@@ -152,10 +152,10 @@ a:hover { color: var(--accent-deep); }
   box-shadow: 0 14px 34px rgba(28, 27, 24, 0.1);
 }
 
-/* spruce monochrome that blooms to color on hover (pointer devices only) */
+/* cool-blue monochrome that blooms to color on hover (pointer devices only) */
 @media (hover: hover) {
   .hero-photo img {
-    filter: grayscale(1) sepia(0.22) hue-rotate(105deg) saturate(0.75) brightness(1.03);
+    filter: grayscale(1) sepia(0.28) hue-rotate(178deg) saturate(0.7) brightness(1.05);
     transition: filter 0.5s ease;
   }
 
@@ -258,7 +258,7 @@ h2 {
 }
 
 .route-shape {
-  fill: rgba(29, 92, 77, 0.06);
+  fill: rgba(58, 118, 166, 0.07);
   stroke: var(--ink);
   stroke-width: 2;
   stroke-linejoin: round;
