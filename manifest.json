@@ -1,0 +1,14 @@
+{
+  "name": "Bjorn Swanson",
+  "short_name": "Bjorn",
+  "description": "Early riser. Builder of small, useful things. Big believer in positivity.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#3a76a6",
+  "theme_color": "#3a76a6",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
