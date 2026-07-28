@@ -123,8 +123,13 @@ a:hover { color: var(--accent-deep); }
   transition: transform 0.22s ease;
 }
 
-.site-nav a:hover { color: var(--accent); }
-.site-nav a:hover::after { transform: scaleX(1); }
+.site-nav a:hover,
+.site-nav a.is-active { color: var(--accent); }
+
+.site-nav a:hover::after,
+.site-nav a.is-active::after { transform: scaleX(1); }
+
+.site-nav a.is-active { font-weight: 600; }
 
 .nav-toggle {
   display: none;

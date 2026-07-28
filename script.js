@@ -40,6 +40,25 @@
     backBtn.classList.toggle("is-visible", window.scrollY > 420);
   }, { passive: true });
 
+  // Nav scroll spy
+  var navLinks = document.querySelectorAll(".site-nav a[href^='#']");
+  var spySections = Array.from(navLinks).map(function (link) {
+    return document.querySelector(link.getAttribute("href"));
+  }).filter(Boolean);
+
+  if ("IntersectionObserver" in window && spySections.length) {
+    var spyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("is-active"); });
+          var match = document.querySelector('.site-nav a[href="#' + entry.target.id + '"]');
+          if (match) match.classList.add("is-active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -65% 0px" });
+    spySections.forEach(function (s) { spyObserver.observe(s); });
+  }
+
   // Gentle reveal-on-scroll for sections (skipped for reduced motion)
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion && "IntersectionObserver" in window) {
