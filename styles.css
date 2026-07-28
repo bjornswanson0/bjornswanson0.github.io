@@ -542,6 +542,12 @@ h2:hover::after {
   border-left: 3px solid var(--accent);
   padding-left: 1.4rem;
   position: relative;
+  transition: transform 0.2s ease, border-left-color 0.2s ease;
+}
+
+.quote-list blockquote:hover {
+  transform: translateX(4px);
+  border-left-color: var(--accent-deep);
 }
 
 .quote-list blockquote::before {
