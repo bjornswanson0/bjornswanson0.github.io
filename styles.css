@@ -60,6 +60,15 @@ body {
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--accent-deep); }
 
+.section p a {
+  text-decoration-color: rgba(58, 118, 166, 0.35);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.section p a:hover {
+  text-decoration-color: var(--accent);
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -83,6 +92,11 @@ a:hover { color: var(--accent-deep); }
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--hairline);
+  transition: box-shadow 0.2s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 2px 14px rgba(28, 27, 24, 0.07);
 }
 
 .wordmark {

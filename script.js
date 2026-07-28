@@ -34,10 +34,12 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  var header = document.querySelector(".site-header");
   window.addEventListener("scroll", function () {
     var ratio = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
     bar.style.transform = "scaleX(" + Math.min(ratio, 1) + ")";
     backBtn.classList.toggle("is-visible", window.scrollY > 420);
+    header.classList.toggle("is-scrolled", window.scrollY > 10);
   }, { passive: true });
 
   // Nav scroll spy
