@@ -238,6 +238,16 @@ a:hover { color: var(--accent-deep); }
   }
 
   .hero-photo:hover img { filter: none; transform: scale(1.02); }
+
+  .hero-photo::before {
+    transition: transform 0.78s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.78s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .hero-photo:hover::before {
+    transform: translate(14px, 14px);
+    opacity: 0.75;
+  }
 }
 
 @media (max-width: 900px) {
