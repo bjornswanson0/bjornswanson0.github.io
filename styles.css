@@ -223,6 +223,7 @@ a:hover { color: var(--accent-deep); }
   line-height: 1.05;
   letter-spacing: -0.015em;
   margin: 0.6rem 0 1.1rem;
+  text-shadow: 0 1px 2px rgba(28, 27, 24, 0.07);
 }
 
 .tagline {
@@ -638,6 +639,23 @@ h2:hover::after {
 
 @media (prefers-reduced-motion: reduce) {
   #passions.reveal .card { opacity: 1; }
+}
+
+/* ---------- route map entrance ---------- */
+
+@keyframes figure-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+#roots.reveal .route { opacity: 0; }
+
+#roots.is-visible .route {
+  animation: figure-in 0.9s ease 0.45s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #roots.reveal .route { opacity: 1; }
 }
 
 /* ---------- back to top ---------- */
