@@ -92,7 +92,10 @@ a:hover { color: var(--accent-deep); }
   color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.01em;
+  transition: color 0.2s ease;
 }
+
+.wordmark:hover { color: var(--accent); }
 
 .site-nav { display: flex; gap: 1.6rem; }
 
@@ -258,12 +261,26 @@ a:hover { color: var(--accent-deep); }
 }
 
 .kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.5rem;
+}
+
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 1px;
+  flex-shrink: 0;
+  opacity: 0.8;
 }
 
 h2 {
