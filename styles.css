@@ -725,6 +725,17 @@ h2:hover::after {
   #roots.reveal .route { opacity: 1; }
 }
 
+@keyframes ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.8); opacity: 0; }
+}
+
+#roots.is-visible .route-home-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ring-pulse 3s ease-in-out 1.5s infinite;
+}
+
 /* ---------- back to top ---------- */
 
 .back-to-top {
