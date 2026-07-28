@@ -286,6 +286,12 @@ a:hover { color: var(--accent-deep); }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+  transition: letter-spacing 0.25s ease, color 0.2s ease;
+}
+
+.scroll-cue:hover {
+  letter-spacing: 0.12em;
+  color: var(--accent-deep);
 }
 
 .scroll-cue span {
