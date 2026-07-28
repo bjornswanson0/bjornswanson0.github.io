@@ -267,7 +267,7 @@ a:hover { color: var(--accent-deep); }
   font-size: clamp(1.2rem, 3vw, 1.45rem);
   font-weight: 400;
   font-style: italic;
-  color: var(--ink-soft);
+  color: color-mix(in srgb, var(--accent) 18%, var(--ink-soft));
   margin-bottom: 1.6rem;
 }
 
