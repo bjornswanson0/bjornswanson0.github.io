@@ -87,7 +87,25 @@ a:hover { color: var(--accent-deep); }
   text-decoration: none;
 }
 
+.site-nav a {
+  position: relative;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
 .site-nav a:hover { color: var(--accent); }
+.site-nav a:hover::after { transform: scaleX(1); }
 
 .nav-toggle {
   display: none;
@@ -194,6 +212,11 @@ a:hover { color: var(--accent-deep); }
 
 .lede { max-width: 36rem; }
 
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
 .scroll-cue {
   display: inline-block;
   margin-top: 2.6rem;
@@ -202,6 +225,11 @@ a:hover { color: var(--accent-deep); }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.scroll-cue span {
+  display: inline-block;
+  animation: arrow-bounce 1.6s ease-in-out infinite;
 }
 
 /* ---------- sections ---------- */
@@ -381,6 +409,21 @@ h2 {
 .quote-list blockquote {
   border-left: 3px solid var(--accent);
   padding-left: 1.4rem;
+  position: relative;
+}
+
+.quote-list blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.6rem;
+  left: -0.1rem;
+  font-family: var(--serif);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.15;
+  pointer-events: none;
+  user-select: none;
 }
 
 .quote-list blockquote p {
