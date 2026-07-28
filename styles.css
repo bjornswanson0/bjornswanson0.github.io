@@ -733,3 +733,31 @@ h2:hover::after {
   .section { padding: 3.2rem 1.5rem; }
   .card-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- dark mode ---------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110;
+    --bg-raised: #1c1c1a;
+    --ink: #eae7de;
+    --ink-soft: #8a8680;
+    --accent: #6db3e8;
+    --accent-deep: #5aa0d5;
+    --hairline: #2e2e2a;
+  }
+
+  .route-shape {
+    fill: rgba(109, 179, 232, 0.09);
+  }
+
+  .hero-photo img {
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media (prefers-color-scheme: dark) and (hover: hover) {
+  .hero-photo img {
+    filter: grayscale(1) brightness(0.82);
+  }
+}
