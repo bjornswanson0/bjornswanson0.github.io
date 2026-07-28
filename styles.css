@@ -415,7 +415,10 @@ h2::after {
   font-size: 1.35rem;
   font-weight: 600;
   margin-bottom: 0.4rem;
+  transition: color 0.2s ease;
 }
+
+.timeline li:hover h3 { color: var(--accent); }
 
 /* ---------- passion cards ---------- */
 
@@ -510,6 +513,12 @@ h2::after {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-soft);
+}
+
+.quote-list cite::before {
+  content: "\2014\2009";
+  color: var(--accent);
+  opacity: 0.7;
 }
 
 /* ---------- connect ---------- */
