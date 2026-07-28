@@ -156,6 +156,27 @@ a:hover { color: var(--accent-deep); }
 .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
+/* ---------- hero entrance ---------- */
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero .kicker     { animation: hero-in 0.65s ease-out 0s    both; }
+.hero h1          { animation: hero-in 0.65s ease-out 0.12s both; }
+.hero .tagline    { animation: hero-in 0.65s ease-out 0.24s both; }
+.hero .lede       { animation: hero-in 0.65s ease-out 0.36s both; }
+.hero .scroll-cue { animation: hero-in 0.65s ease-out 0.5s  both; }
+.hero-photo       { animation: hero-in 0.8s  ease-out 0.18s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .kicker, .hero h1, .hero .tagline,
+  .hero .lede, .hero .scroll-cue, .hero-photo {
+    animation: none;
+  }
+}
+
 /* ---------- hero ---------- */
 
 .hero {
