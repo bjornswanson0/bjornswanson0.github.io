@@ -430,6 +430,7 @@ h2:hover::after {
   list-style: none;
   margin-top: 2rem;
   border-left: 2px solid var(--hairline);
+  border-image: linear-gradient(to bottom, var(--accent), var(--hairline)) 1;
 }
 
 .timeline li {
