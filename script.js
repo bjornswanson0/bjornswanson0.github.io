@@ -20,6 +20,15 @@
   // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // Scroll progress bar
+  var bar = document.createElement("div");
+  bar.className = "scroll-progress";
+  document.body.prepend(bar);
+  window.addEventListener("scroll", function () {
+    var ratio = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    bar.style.transform = "scaleX(" + Math.min(ratio, 1) + ")";
+  }, { passive: true });
+
   // Gentle reveal-on-scroll for sections (skipped for reduced motion)
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion && "IntersectionObserver" in window) {
