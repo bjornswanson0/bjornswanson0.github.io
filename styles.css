@@ -289,7 +289,19 @@ h2 {
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.01em;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  opacity: 0.55;
+  border-radius: 2px;
 }
 
 .section p + p { margin-top: 1rem; }
@@ -447,7 +459,10 @@ h2 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.55rem;
+  transition: color 0.2s ease;
 }
+
+.card:hover h3 { color: var(--accent); }
 
 .card p { font-size: 0.98rem; color: var(--ink-soft); }
 
