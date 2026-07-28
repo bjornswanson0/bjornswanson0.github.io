@@ -806,3 +806,61 @@ h2:hover::after {
     filter: grayscale(1) brightness(0.82);
   }
 }
+
+/* ---------- connect section accent border ---------- */
+
+#connect {
+  border-top-color: var(--accent);
+  border-top-width: 2px;
+}
+
+/* ---------- print ---------- */
+
+@media print {
+  .scroll-progress,
+  .back-to-top,
+  .nav-toggle,
+  .scroll-cue { display: none !important; }
+
+  .site-header {
+    position: static;
+    box-shadow: none;
+    backdrop-filter: none;
+    border-bottom: 0.5pt solid #ccc;
+  }
+
+  .site-nav { display: flex !important; }
+
+  body { font-size: 11pt; color: #000; background: #fff; }
+
+  .hero {
+    grid-template-columns: 8rem 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0 1rem;
+  }
+
+  .hero-photo { order: -1; }
+
+  .hero-photo img {
+    filter: none !important;
+    box-shadow: none;
+  }
+
+  .section { padding: 1.2rem 0; }
+
+  h1 { font-size: 26pt; }
+  h2 { font-size: 16pt; }
+
+  .card-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .card { box-shadow: none; border: 0.5pt solid #ccc; }
+
+  a { color: #000; text-decoration: underline; }
+  .btn { border: 0.5pt solid #000; color: #000; background: none; }
+
+  .reveal { opacity: 1 !important; transform: none !important; }
+  #passions.reveal .card { opacity: 1 !important; }
+  #roots.reveal .route { opacity: 1 !important; }
+
+  .route-label { fill: #000; }
+  .route-shape { stroke: #000; }
+}
