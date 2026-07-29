@@ -115,7 +115,15 @@
           <circle class="route-home-dot" cx="80.1" cy="112" r="3.5"/>
 
           <!-- The move -->
-          <path class="route-path" d="M 88 106 Q 265 10 472.5 127" marker-end="url(#route-arrow)"/>
+          <path id="route-move-path" class="route-path" d="M 88 106 Q 265 10 472.5 127" marker-end="url(#route-arrow)"/>
+
+          <!-- Animated plane -->
+          <g class="route-plane-group" aria-hidden="true">
+            <path class="route-plane-icon" d="M 7 0 L -4 -2.5 L -2 0 L -4 2.5 Z M 2 -2.5 L -2.5 -7.5 L -4 -7.5 L -2.5 -2.5 Z M 2 2.5 L -2.5 7.5 L -4 7.5 L -2.5 2.5 Z M -2 -2.5 L -4.5 -4.5 L -5 -4 L -3 -2.5 Z M -2 2.5 L -4.5 4.5 L -5 4 L -3 2.5 Z"/>
+            <animateMotion dur="4s" begin="0.8s" repeatCount="indefinite" rotate="auto" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1">
+              <mpath href="#route-move-path"/>
+            </animateMotion>
+          </g>
 
           <!-- New York -->
           <path class="route-shape" d="M 488.5 68.7 L 489.2 75.9 L 488.1 79.4 L 489.8 78.7 L 490.7 80.4 L 490.4 95.4 L 487.0 107.9 L 486.4 122.9 L 487.4 124.4 L 484.0 126.5 L 485.0 128.8 L 482.7 131.7 L 483.3 132.3 L 483.9 131.0 L 487.3 129.5 L 490.9 130.2 L 492.6 129.0 L 499.9 128.5 L 504.6 125.4 L 503.3 126.4 L 506.6 128.6 L 510.0 127.1 L 502.5 131.0 L 490.8 135.6 L 480.0 136.5 L 480.0 133.1 L 481.6 128.5 L 466.5 118.9 L 464.7 112.5 L 462.6 111.7 L 461.3 109.5 L 400.0 109.5 L 400.0 104.4 L 408.5 99.0 L 409.9 96.4 L 412.6 94.6 L 409.7 88.8 L 409.6 85.6 L 419.4 83.4 L 427.9 84.1 L 430.8 86.1 L 439.0 85.4 L 442.6 84.0 L 446.5 80.7 L 449.1 80.5 L 449.5 76.9 L 448.4 74.3 L 450.6 73.3 L 447.3 70.3 L 448.0 67.8 L 453.6 64.6 L 462.0 55.7 L 466.4 53.1 L 489.3 52.4 L 488.7 59.9 L 490.0 63.3 Z"/>
@@ -214,17 +222,17 @@
       <h2>Things I've built</h2>
       <div class="project-grid">
 
-        <a class="project-card project-card--visual" href="https://bjornswanson0.github.io/nest-egg/" target="_blank" rel="noopener noreferrer">
+        <a class="project-card project-card--visual project-card--wide" href="https://bjornswanson0.github.io/morninggrind/" target="_blank" rel="noopener noreferrer">
           <div class="project-preview">
-            <iframe src="https://bjornswanson0.github.io/nest-egg/" tabindex="-1" aria-hidden="true" scrolling="no" loading="lazy"></iframe>
+            <iframe src="https://bjornswanson0.github.io/morninggrind/" tabindex="-1" aria-hidden="true" scrolling="no" loading="lazy"></iframe>
           </div>
           <div class="project-info">
             <div class="project-header">
-              <h3>Nest Egg</h3>
+              <h3>Morning Grind</h3>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </div>
-            <p>Retirement calculator for 401k, Roth, HSA, and HYSA. Starts blank &mdash; enter your own numbers.</p>
-            <div class="project-tags"><span>Finance</span><span>HTML / CSS / JS</span></div>
+            <p>Local-first PWA that generates a personalized 6 AM workout plan every morning based on your goals and training split.</p>
+            <div class="project-tags"><span>Fitness</span><span>PWA</span><span>HTML / CSS / JS</span></div>
           </div>
         </a>
 
@@ -242,17 +250,17 @@
           </div>
         </a>
 
-        <a class="project-card project-card--visual project-card--wide" href="https://bjornswanson0.github.io/morninggrind/" target="_blank" rel="noopener noreferrer">
+        <a class="project-card project-card--visual" href="https://bjornswanson0.github.io/nest-egg/" target="_blank" rel="noopener noreferrer">
           <div class="project-preview">
-            <iframe src="https://bjornswanson0.github.io/morninggrind/" tabindex="-1" aria-hidden="true" scrolling="no" loading="lazy"></iframe>
+            <iframe src="https://bjornswanson0.github.io/nest-egg/" tabindex="-1" aria-hidden="true" scrolling="no" loading="lazy"></iframe>
           </div>
           <div class="project-info">
             <div class="project-header">
-              <h3>Morning Grind</h3>
+              <h3>Nest Egg</h3>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </div>
-            <p>Local-first PWA that generates a personalized 6 AM workout plan every morning based on your goals and training split.</p>
-            <div class="project-tags"><span>Fitness</span><span>PWA</span><span>HTML / CSS / JS</span></div>
+            <p>Retirement calculator for 401k, Roth, HSA, and HYSA. Starts blank &mdash; enter your own numbers.</p>
+            <div class="project-tags"><span>Finance</span><span>HTML / CSS / JS</span></div>
           </div>
         </a>
 

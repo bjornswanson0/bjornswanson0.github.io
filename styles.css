@@ -605,6 +605,15 @@ h2:hover::after {
 
 .route-home-dot { fill: var(--accent); }
 
+.route-plane-icon {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--accent) 55%, transparent));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-plane-group { display: none; }
+}
+
 .route-label {
   font-family: var(--sans);
   font-size: 15px;
