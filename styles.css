@@ -215,41 +215,6 @@ a:hover { color: var(--accent-deep); }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 html { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--accent) 38%, transparent) transparent; }
 
-/* ---------- marquee strip ---------- */
-
-.marquee-strip {
-  overflow: hidden;
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
-  padding: 0.9rem 0;
-  background: color-mix(in srgb, var(--accent) 3%, var(--bg));
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll 24s linear infinite;
-}
-
-.marquee-content {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
-
 /* ---------- hero ---------- */
 
 .hero {
@@ -408,6 +373,8 @@ html { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--accent) 
   max-width: 34rem;
   margin: 0 auto;
   line-height: 1.62;
+  font-size: 0.97rem;
+  color: var(--ink-soft);
   letter-spacing: -0.01em;
 }
 
@@ -608,19 +575,6 @@ h2:hover::after {
   z-index: 0;
 }
 
-/* Tagline blinking cursor */
-.tagline-cursor {
-  display: inline-block;
-  color: var(--accent);
-  font-weight: 300;
-  margin-left: 1px;
-  animation: blink-cursor 0.65s step-end infinite;
-}
-
-@keyframes blink-cursor {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
 
 /* closing-statement paragraphs in Now and Next read as serif conclusions */
 #now p:last-child,
