@@ -747,6 +747,23 @@ h2:hover::after {
   border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
+.project-tags .tag-wip {
+  background: color-mix(in srgb, var(--ink-soft) 8%, var(--bg));
+  color: var(--ink-soft);
+  border-color: color-mix(in srgb, var(--ink-soft) 18%, transparent);
+}
+
+.project-card--inert {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.project-card--inert:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--hairline);
+}
+
 /* ---------- quotes ---------- */
 
 #quotes { max-width: 52rem; }
