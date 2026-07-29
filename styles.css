@@ -305,6 +305,22 @@ a:hover { color: var(--accent-deep); }
   object-position: center 10%;
 }
 
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--ink) 5%, var(--bg));
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
 .hero-eyebrow {
   display: block;
   font-size: 0.78rem;
@@ -683,6 +699,10 @@ h2:hover::after {
 
 .card:hover .card-glow { opacity: 1; }
 
+.card:nth-child(1) { border-top: 2px solid rgba(58, 118, 166, 0.45); }
+.card:nth-child(2) { border-top: 2px solid rgba(245, 158, 11, 0.45); }
+.card:nth-child(3) { border-top: 2px solid rgba(52, 211, 153, 0.45); }
+
 .card:nth-child(1) .card-glow {
   background:
     linear-gradient(180deg, rgba(58,118,166,0.2) 0%, rgba(58,118,166,0.08) 40%, transparent 88%),
@@ -880,13 +900,14 @@ h2:hover::after {
 
 .quote-list cite {
   display: block;
-  margin-top: 0.6rem;
+  margin-top: 0.75rem;
   font-style: normal;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-soft);
+  text-align: right;
 }
 
 .quote-list cite::before {
