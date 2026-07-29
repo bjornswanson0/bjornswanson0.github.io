@@ -554,6 +554,8 @@ h2:hover::after {
 
 /* ---------- quotes ---------- */
 
+#quotes { max-width: 52rem; }
+
 .quote-list {
   display: grid;
   gap: 2.2rem;
