@@ -228,6 +228,19 @@ a:hover { color: var(--accent-deep); }
   opacity: 0.22;
 }
 
+/* Colour variety across the 14 radiating lines */
+.hero-lines path:nth-child(2)  { stroke: #c87941; }          /* amber */
+.hero-lines path:nth-child(3)  { stroke: #4a9b74; }          /* sage */
+.hero-lines path:nth-child(4)  { stroke: #7c6aaa; }          /* slate purple */
+.hero-lines path:nth-child(6)  { stroke: #c87941; opacity: 0.18; }
+.hero-lines path:nth-child(7)  { stroke: #4a9b74; opacity: 0.18; }
+.hero-lines path:nth-child(8)  { stroke: #7c6aaa; opacity: 0.18; }
+.hero-lines path:nth-child(10) { stroke: #3a8a9b; }          /* teal */
+.hero-lines path:nth-child(11) { stroke: #c87941; opacity: 0.15; }
+.hero-lines path:nth-child(12) { stroke: #4a9b74; opacity: 0.15; }
+.hero-lines path:nth-child(13) { stroke: #3a8a9b; opacity: 0.15; }
+.hero-lines path:nth-child(14) { stroke: #7c6aaa; opacity: 0.15; }
+
 .hero-inner {
   position: relative;
   z-index: 2;
