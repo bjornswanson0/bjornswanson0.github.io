@@ -101,7 +101,7 @@ a:hover { color: var(--accent-deep); }
 
 .wordmark {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.15rem;
   color: var(--ink);
   text-decoration: none;
@@ -111,7 +111,7 @@ a:hover { color: var(--accent-deep); }
 
 .wordmark:hover { color: var(--accent); }
 
-.site-nav { display: flex; gap: 1.6rem; }
+.site-nav { display: flex; gap: 1.4rem; }
 
 .site-nav a {
   font-size: 0.875rem;
@@ -497,8 +497,8 @@ h2:hover::after {
 
 .timeline h3 {
   font-family: var(--serif);
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
   margin-bottom: 0.4rem;
   transition: color 0.2s ease;
 }
