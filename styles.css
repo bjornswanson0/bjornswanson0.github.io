@@ -53,6 +53,7 @@ body {
   color: var(--ink);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection { background: var(--accent); color: #fff; }
@@ -318,6 +319,7 @@ a:hover { color: var(--accent-deep); }
   margin: 0 auto;
   padding: 4rem 1.5rem;
   border-top: 1px solid var(--hairline);
+  scroll-margin-top: 5rem;
 }
 
 .kicker {
@@ -516,7 +518,7 @@ h2:hover::after {
   margin-right: auto;
 }
 
-#passions h2 { margin-bottom: 2rem; }
+#passions h2 { margin-bottom: 1.6rem; }
 
 .card-grid {
   display: grid;
