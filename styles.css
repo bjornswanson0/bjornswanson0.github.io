@@ -283,7 +283,7 @@ a:hover { color: var(--accent-deep); }
   font-optical-sizing: auto;
 }
 
-.lede { max-width: 36rem; line-height: 1.62; }
+.lede { max-width: 36rem; line-height: 1.62; letter-spacing: -0.01em; }
 
 @keyframes arrow-bounce {
   0%, 100% { transform: translateY(0); }
@@ -673,7 +673,9 @@ h2:hover::after {
   position: relative;
   padding: 2.8rem 1.5rem 3rem;
   text-align: center;
-  font-size: 0.88rem;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  font-style: italic;
   color: var(--ink-soft);
 }
 
@@ -683,7 +685,7 @@ h2:hover::after {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 5rem;
+  width: 8rem;
   height: 1px;
   background: linear-gradient(to right, transparent, var(--accent), transparent);
 }
