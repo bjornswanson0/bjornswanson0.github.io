@@ -96,6 +96,12 @@ a:hover { color: var(--accent-deep); }
   box-shadow: 0 4px 24px rgba(28, 27, 24, 0.09), 0 1px 3px rgba(28, 27, 24, 0.05);
   width: max-content;
   max-width: calc(100vw - 3rem);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  box-shadow: 0 4px 28px rgba(28, 27, 24, 0.14), 0 1px 4px rgba(28, 27, 24, 0.08);
 }
 
 .wordmark {
@@ -386,8 +392,25 @@ a:hover { color: var(--accent-deep); }
   max-width: var(--measure);
   margin: 0 auto;
   padding: 4rem 1.5rem;
-  border-top: 1px solid var(--hairline);
+  border-top: none;
   scroll-margin-top: 5rem;
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, var(--hairline) 18%, var(--hairline) 82%, transparent 100%);
+}
+
+#connect::before {
+  background: linear-gradient(to right, transparent 0%, var(--accent) 18%, var(--accent) 82%, transparent 100%);
+  height: 2px;
+  opacity: 0.6;
 }
 
 .kicker {
@@ -456,6 +479,19 @@ h2::after {
 h2:hover::after {
   width: 3.6rem;
   opacity: 0.8;
+}
+
+/* underline draws in when section scrolls into view */
+.section.reveal h2::after {
+  width: 0;
+  opacity: 0;
+}
+
+.section.is-visible h2::after {
+  width: 2.2rem;
+  opacity: 0.55;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.25s,
+              opacity 0.5s ease 0.25s;
 }
 
 .section p + p { margin-top: 1rem; }
@@ -1169,12 +1205,7 @@ h2:hover::after {
   height: 16px;
 }
 
-/* ---------- connect section accent border ---------- */
-
-#connect {
-  border-top-color: var(--accent);
-  border-top-width: 2px;
-}
+/* connect section uses accent gradient border via ::before (see .section::before) */
 
 /* ---------- print ---------- */
 
