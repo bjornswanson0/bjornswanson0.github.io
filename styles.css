@@ -544,6 +544,39 @@ h2:hover::after {
 
 .section p + p { margin-top: 1rem; }
 
+/* Large faded section numbers — decorative, behind content */
+.section[data-num] { overflow: clip; }
+.section[data-num]::after {
+  content: attr(data-num);
+  position: absolute;
+  top: 0.25rem;
+  right: -0.1em;
+  font-family: var(--serif);
+  font-size: clamp(7rem, 22vw, 13rem);
+  font-weight: 600;
+  color: var(--ink);
+  opacity: 0.042;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Tagline blinking cursor */
+.tagline-cursor {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 300;
+  margin-left: 1px;
+  animation: blink-cursor 0.65s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 /* closing-statement paragraphs in Now and Next read as serif conclusions */
 #now p:last-child,
 #next p:last-child {
@@ -1092,12 +1125,33 @@ h2:hover::after {
 
 .site-footer {
   position: relative;
-  padding: 2.8rem 1.5rem 5rem;
+  padding: 3.5rem 1.5rem 6rem;
   text-align: center;
-  font-family: var(--serif);
-  font-size: 0.92rem;
-  font-style: italic;
   color: var(--ink-soft);
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  font-style: italic;
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  margin-bottom: 1.1rem;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  font-family: var(--sans);
+  letter-spacing: 0.04em;
+  opacity: 0.55;
 }
 
 .site-footer::before {

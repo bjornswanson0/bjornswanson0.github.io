@@ -34,6 +34,19 @@
         span.style.filter = "none";
       }, 700 + i * 75);
     });
+
+    // Blinking cursor after reveal completes
+    var cursor = document.createElement("span");
+    cursor.className = "tagline-cursor";
+    cursor.textContent = "|";
+    tagline.appendChild(cursor);
+    var cursorStart = 700 + words.length * 75 + 100;
+    setTimeout(function () {
+      cursor.style.animation = "none";
+      cursor.style.transition = "opacity 0.55s ease";
+      cursor.style.opacity = "0";
+      setTimeout(function () { cursor.remove(); }, 650);
+    }, cursorStart + 1900);
   }
 
   // Character scramble on hero h1
