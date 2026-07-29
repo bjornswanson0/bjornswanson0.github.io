@@ -763,30 +763,56 @@ h2:hover::after {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 720px) {
   .project-grid { grid-template-columns: 1fr; }
 }
 
 .project-card {
   display: block;
-  padding: 1.4rem 1.5rem;
   border: 1px solid var(--hairline);
   border-radius: 12px;
   background: var(--bg-raised);
   text-decoration: none;
   color: var(--ink);
+  overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.project-card:hover {
+.project-card:not(.project-card--inert):hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(28, 27, 24, 0.09);
   border-color: color-mix(in srgb, var(--accent) 35%, var(--hairline));
   color: var(--ink);
+}
+
+/* Live UI preview */
+.project-card--visual .project-preview {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--bg);
+}
+
+.project-card--visual .project-preview iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 900px;
+  border: none;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+  user-select: none;
+}
+
+.project-info {
+  padding: 1.1rem 1.4rem;
 }
 
 .project-header {
@@ -794,7 +820,7 @@ h2:hover::after {
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.5rem;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.6rem;
 }
 
 .project-header h3 {
@@ -804,7 +830,7 @@ h2:hover::after {
   transition: color 0.2s ease;
 }
 
-.project-card:hover .project-header h3 { color: var(--accent); }
+.project-card:not(.project-card--inert):hover .project-header h3 { color: var(--accent); }
 
 .project-header svg {
   width: 15px;
@@ -815,16 +841,21 @@ h2:hover::after {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.project-card:hover .project-header svg {
+.project-card:not(.project-card--inert):hover .project-header svg {
   transform: translate(2px, -2px);
   color: var(--accent);
 }
 
-.project-card > p {
+/* Text-only cards (no preview) */
+.project-card:not(.project-card--visual) { padding: 1.4rem 1.5rem; }
+.project-card:not(.project-card--visual) .project-header { margin-bottom: 0.65rem; }
+
+.project-card > p,
+.project-info > p {
   font-size: 0.92rem;
   color: var(--ink-soft);
   line-height: 1.55;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 .project-tags {
@@ -850,16 +881,8 @@ h2:hover::after {
   border-color: color-mix(in srgb, var(--ink-soft) 18%, transparent);
 }
 
-.project-card--inert {
-  cursor: default;
-  opacity: 0.75;
-}
-
-.project-card--inert:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--hairline);
-}
+.project-card--inert { cursor: default; opacity: 0.72; }
+.project-card--wide  { grid-column: 1 / -1; }
 
 /* ---------- quotes ---------- */
 
