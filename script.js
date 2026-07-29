@@ -78,6 +78,32 @@
     }
   }
 
+  // Hero cursor spotlight
+  var heroEl = document.querySelector(".hero");
+  if (heroEl && !reduceHero) {
+    heroEl.addEventListener("mousemove", function (e) {
+      var rect = heroEl.getBoundingClientRect();
+      heroEl.style.setProperty("--mx", ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + "%");
+      heroEl.style.setProperty("--my", ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + "%");
+      heroEl.classList.add("spotlight-on");
+    }, { passive: true });
+    heroEl.addEventListener("mouseleave", function () {
+      heroEl.classList.remove("spotlight-on");
+    });
+  }
+
+  // Hero lines parallax on scroll
+  var heroLinesEl = document.querySelector(".hero-lines");
+  if (heroEl && heroLinesEl && !reduceHero) {
+    var heroH = heroEl.offsetHeight;
+    window.addEventListener("scroll", function () {
+      var sy = window.scrollY;
+      if (sy < heroH) {
+        heroLinesEl.style.transform = "translateY(" + (sy * 0.18).toFixed(1) + "px)";
+      }
+    }, { passive: true });
+  }
+
   // Mobile nav toggle
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
@@ -148,6 +174,11 @@
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
             observer.unobserve(entry.target);
+            // Stagger child cards / list items
+            var kids = Array.from(entry.target.querySelectorAll(".project-card, .card, .timeline-ol > li"));
+            kids.forEach(function (el, i) {
+              setTimeout(function () { el.classList.add("child-in"); }, i * 90 + 80);
+            });
           }
         });
       },
