@@ -724,7 +724,7 @@ h2:hover::after {
 
 .site-footer {
   position: relative;
-  padding: 2.8rem 1.5rem 3rem;
+  padding: 2.8rem 1.5rem 5rem;
   text-align: center;
   font-family: var(--serif);
   font-size: 0.92rem;
@@ -906,6 +906,47 @@ h2:hover::after {
   .route-shape {
     fill: rgba(109, 179, 232, 0.09);
   }
+}
+
+/* ---------- fixed social bar (Ryan-style bottom footer) ---------- */
+
+.social-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.6rem 1rem;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--hairline);
+}
+
+.social-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.social-bar a:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.social-bar svg {
+  width: 17px;
+  height: 17px;
 }
 
 /* ---------- connect section accent border ---------- */
