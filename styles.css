@@ -872,6 +872,8 @@ h2:hover::after {
   color: var(--accent);
 }
 
+.project-card--wide.project-card--visual .project-preview { height: 270px; }
+
 /* Text-only cards (no preview) */
 .project-card:not(.project-card--visual) { padding: 1.4rem 1.5rem; }
 .project-card:not(.project-card--visual) .project-header { margin-bottom: 0.65rem; }

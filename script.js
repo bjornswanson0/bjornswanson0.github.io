@@ -36,6 +36,48 @@
     });
   }
 
+  // Character scramble on hero h1
+  var heroH1 = document.querySelector(".hero h1");
+  if (heroH1 && !reduceHero) {
+    var SCRAMBLE_CHARS = "abcdefghijklmnopqrstuvwxyz";
+
+    function scrambleLine(container, text, startDelay) {
+      var letters = text.split("");
+      container.innerHTML = letters.map(function (c) {
+        return '<span class="hc">' + (/[a-zA-Z]/.test(c) ? SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)] : c) + "</span>";
+      }).join("");
+      Array.from(container.querySelectorAll(".hc")).forEach(function (span, i) {
+        var target = letters[i];
+        if (!/[a-zA-Z]/.test(target)) return;
+        var timer;
+        setTimeout(function () {
+          timer = setInterval(function () {
+            span.textContent = SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+          }, 36);
+          setTimeout(function () {
+            clearInterval(timer);
+            span.textContent = target;
+          }, 260);
+        }, startDelay + i * 55);
+      });
+    }
+
+    var firstTextNode = heroH1.firstChild;
+    if (firstTextNode && firstTextNode.nodeType === 3) {
+      var line1 = document.createElement("span");
+      line1.className = "h1-line1";
+      firstTextNode.replaceWith(line1);
+      scrambleLine(line1, "Bjorn", 420);
+    }
+    var h1Muted = heroH1.querySelector(".h1-muted");
+    if (h1Muted) {
+      var line2 = document.createElement("span");
+      h1Muted.textContent = "";
+      h1Muted.appendChild(line2);
+      scrambleLine(line2, "Swanson.", 580);
+    }
+  }
+
   // Mobile nav toggle
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
