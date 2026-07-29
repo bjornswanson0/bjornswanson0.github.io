@@ -17,7 +17,7 @@
   --serif: "Fraunces", Georgia, serif;
   --sans: "Inter", -apple-system, "Segoe UI", sans-serif;
 
-  --measure: 42rem;
+  --measure: 44rem;
   --wide: 66rem;
 }
 
@@ -543,7 +543,7 @@ h2:hover::after {
 .card h3 {
   font-family: var(--serif);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 0.55rem;
   transition: color 0.2s ease;
 }
