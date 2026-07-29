@@ -1,6 +1,41 @@
 (function () {
   "use strict";
 
+  // Animated radiating hero lines
+  var reduceHero = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceHero) {
+    var heroLines = document.querySelectorAll(".hero-line");
+    heroLines.forEach(function (path, i) {
+      var len = path.getTotalLength();
+      path.style.strokeDasharray = len + " " + len;
+      path.style.strokeDashoffset = len;
+      setTimeout(function () {
+        path.style.transition = "stroke-dashoffset " + (1.4 + i * 0.08) + "s cubic-bezier(0.4, 0, 0.2, 1)";
+        path.style.strokeDashoffset = "0";
+      }, 200 + i * 100);
+    });
+  }
+
+  // Word-by-word tagline reveal
+  var tagline = document.getElementById("hero-tagline");
+  if (tagline && !reduceHero) {
+    var words = tagline.textContent.trim().split(/\s+/);
+    tagline.innerHTML = words.map(function (w) {
+      return '<span class="word-reveal">' + w + " </span>";
+    }).join("");
+    var spans = tagline.querySelectorAll(".word-reveal");
+    spans.forEach(function (span) {
+      span.style.opacity = "0";
+      span.style.filter = "blur(5px)";
+    });
+    spans.forEach(function (span, i) {
+      setTimeout(function () {
+        span.style.opacity = "1";
+        span.style.filter = "none";
+      }, 700 + i * 75);
+    });
+  }
+
   // Mobile nav toggle
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
