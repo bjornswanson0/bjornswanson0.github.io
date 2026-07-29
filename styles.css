@@ -588,7 +588,7 @@ h2:hover::after {
 
 .quote-list blockquote p {
   font-family: var(--serif);
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   font-style: italic;
   line-height: 1.4;
 }
