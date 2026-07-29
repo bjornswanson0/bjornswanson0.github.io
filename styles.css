@@ -369,9 +369,10 @@ a:hover { color: var(--accent-deep); }
 .lede { line-height: 1.62; letter-spacing: -0.01em; }
 
 @keyframes scroll-line-drop {
-  0%   { transform: scaleY(0); transform-origin: top; opacity: 0.8; }
-  55%  { transform: scaleY(1); transform-origin: top; opacity: 0.8; }
-  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+  0%   { clip-path: inset(0 0 100% 0); opacity: 1; }
+  55%  { clip-path: inset(0 0 0 0);    opacity: 1; }
+  88%  { clip-path: inset(0 0 0 0);    opacity: 0; }
+  100% { clip-path: inset(0 0 100% 0); opacity: 0; }
 }
 
 .scroll-cue {
@@ -811,6 +812,31 @@ h2:hover::after {
   user-select: none;
 }
 
+.project-card--visual .project-preview::after {
+  content: "Open ↗";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--bg-raised) 0%, transparent);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  transition: opacity 0.28s ease, background 0.28s ease, backdrop-filter 0.28s ease;
+  z-index: 1;
+}
+
+.project-card--visual:hover .project-preview::after {
+  opacity: 1;
+  background: color-mix(in srgb, var(--bg-raised) 65%, transparent);
+  backdrop-filter: blur(3px);
+}
+
 .project-info {
   padding: 1.1rem 1.4rem;
 }
@@ -1188,6 +1214,16 @@ h2:hover::after {
     height: 38px;
     font-size: 1rem;
   }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 6rem 1.25rem 3.5rem; }
+  .hero-avatar { width: 72px; height: 72px; margin-bottom: 1.25rem; }
+  .hero h1 { font-size: clamp(3rem, 16vw, 4.2rem); margin-bottom: 1rem; }
+  .hero .lede { font-size: 0.92rem; }
+  .hero .tagline { font-size: 1rem; }
+  .hero-location { font-size: 0.62rem; }
+  .hero-eyebrow { font-size: 0.72rem; }
 }
 
 /* ---------- dark mode ---------- */
