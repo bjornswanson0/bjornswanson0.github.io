@@ -325,30 +325,38 @@ a:hover { color: var(--accent-deep); }
 
 .lede { line-height: 1.62; letter-spacing: -0.01em; }
 
-@keyframes arrow-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+@keyframes scroll-line-drop {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0.8; }
+  55%  { transform: scaleY(1); transform-origin: top; opacity: 0.8; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
 }
 
 .scroll-cue {
-  display: inline-block;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 3rem;
   text-decoration: none;
-  transition: letter-spacing 0.25s ease, color 0.2s ease;
 }
 
-.scroll-cue:hover {
-  letter-spacing: 0.12em;
-  color: var(--accent-deep);
+.scroll-cue-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
 }
 
-.scroll-cue span {
-  display: inline-block;
-  animation: arrow-bounce 1.6s ease-in-out infinite;
+.scroll-cue:hover .scroll-cue-label { color: var(--accent); }
+
+.scroll-cue-line {
+  display: block;
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scroll-line-drop 1.9s ease-in-out infinite;
 }
 
 /* ---------- sections ---------- */
@@ -963,22 +971,32 @@ h2:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
   color: var(--ink-soft);
   text-decoration: none;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .social-bar a:hover {
   color: var(--accent);
   background: color-mix(in srgb, var(--accent) 10%, transparent);
+  transform: translateY(-2px);
 }
 
+.social-bar a + a {
+  border-left: 1px solid var(--hairline);
+  border-radius: 0;
+  padding: 0 0.15rem;
+}
+
+.social-bar a:first-child { border-radius: 999px 0 0 999px; }
+.social-bar a:last-child  { border-radius: 0 999px 999px 0; }
+
 .social-bar svg {
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
 }
 
 /* ---------- connect section accent border ---------- */
