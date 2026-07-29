@@ -282,7 +282,7 @@ a:hover { color: var(--accent-deep); }
   margin-bottom: 1.6rem;
 }
 
-.lede { max-width: 36rem; }
+.lede { max-width: 36rem; line-height: 1.62; }
 
 @keyframes arrow-bounce {
   0%, 100% { transform: translateY(0); }
