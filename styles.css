@@ -208,6 +208,48 @@ a:hover { color: var(--accent-deep); }
   }
 }
 
+/* ---------- scrollbar ---------- */
+
+::-webkit-scrollbar { width: 3px; background: transparent; }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--accent) 38%, transparent); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+html { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--accent) 38%, transparent) transparent; }
+
+/* ---------- marquee strip ---------- */
+
+.marquee-strip {
+  overflow: hidden;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: 0.9rem 0;
+  background: color-mix(in srgb, var(--accent) 3%, var(--bg));
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.marquee-content {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
 /* ---------- hero ---------- */
 
 .hero {
@@ -319,7 +361,10 @@ a:hover { color: var(--accent-deep); }
   height: 100%;
   object-fit: cover;
   object-position: center 10%;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
 }
+
+.hero-avatar:hover img { transform: scale(1.08); }
 
 .hero-location {
   display: inline-flex;
