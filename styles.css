@@ -260,6 +260,12 @@ a:hover { color: var(--accent-deep); }
   margin: 0 auto;
 }
 
+@keyframes avatar-pulse {
+  0%   { box-shadow: 0 6px 20px rgba(28,27,24,0.13), 0 0 0 0 color-mix(in srgb, var(--accent) 35%, transparent); }
+  70%  { box-shadow: 0 6px 20px rgba(28,27,24,0.13), 0 0 0 9px color-mix(in srgb, var(--accent) 0%, transparent); }
+  100% { box-shadow: 0 6px 20px rgba(28,27,24,0.13), 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+
 .hero-avatar {
   width: 88px;
   height: 88px;
@@ -267,7 +273,7 @@ a:hover { color: var(--accent-deep); }
   overflow: hidden;
   margin: 0 auto 1.75rem;
   border: 2px solid var(--hairline);
-  box-shadow: 0 6px 20px rgba(28, 27, 24, 0.13);
+  animation: hero-in 0.5s ease-out 0s both, avatar-pulse 2.8s ease-out 2s infinite;
 }
 
 .hero-avatar img {
@@ -809,10 +815,30 @@ h2:hover::after {
 
 .connect-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
   margin-top: 1.8rem;
 }
+
+.connect-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.connect-social-row a {
+  color: var(--ink-soft);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.connect-social-row a:hover { color: var(--accent); }
 
 .btn {
   display: inline-block;
