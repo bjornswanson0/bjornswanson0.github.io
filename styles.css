@@ -337,7 +337,8 @@ a:hover { color: var(--accent-deep); }
   width: 5px;
   height: 5px;
   background: var(--accent);
-  border-radius: 1px;
+  border-radius: 0;
+  transform: rotate(45deg);
   flex-shrink: 0;
   opacity: 0.8;
 }
@@ -519,7 +520,7 @@ h2:hover::after {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 @media (max-width: 900px) {
@@ -530,7 +531,7 @@ h2:hover::after {
   background: var(--bg-raised);
   border: 1px solid var(--hairline);
   border-radius: 12px;
-  padding: 1.6rem 1.5rem;
+  padding: 1.4rem 1.4rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-top-color 0.25s ease;
 }
 
