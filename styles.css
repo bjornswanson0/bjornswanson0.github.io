@@ -198,14 +198,20 @@ a:hover { color: var(--accent-deep); }
 
 .hero-avatar    { animation: hero-in 0.5s  ease-out 0s    both; }
 .hero-eyebrow   { animation: hero-in 0.65s ease-out 0.1s  both; }
-.hero h1        { animation: hero-in 0.65s ease-out 0.22s both; }
 .hero .lede     { animation: hero-in 0.65s ease-out 1.55s both; }
 .hero .scroll-cue { animation: hero-in 0.65s ease-out 2.3s  both; }
 
+/* h1 letters — animated individually by JS */
+.h1-letter {
+  display: inline-block;
+  animation: hero-in 0.42s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-avatar, .hero-eyebrow, .hero h1, .hero .lede, .hero .scroll-cue {
+  .hero-avatar, .hero-eyebrow, .hero .lede, .hero .scroll-cue {
     animation: none;
   }
+  .h1-letter { animation: none; opacity: 1; transform: none; }
 }
 
 /* ---------- scrollbar ---------- */

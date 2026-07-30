@@ -3,6 +3,33 @@
 
   var reduceHero = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Letter-by-letter h1 reveal
+  var nameEl = document.querySelector(".hero h1");
+  if (nameEl && !reduceHero) {
+    var charIdx = 0;
+    var baseDelay = 0.2;
+    var perChar = 0.046;
+
+    function wrapLetters(node) {
+      if (node.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        node.textContent.split("").forEach(function (ch) {
+          if (/\s/.test(ch)) { frag.appendChild(document.createTextNode(ch)); return; }
+          var s = document.createElement("span");
+          s.className = "h1-letter";
+          s.textContent = ch;
+          s.style.animationDelay = (baseDelay + charIdx++ * perChar).toFixed(3) + "s";
+          frag.appendChild(s);
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === 1 && node.tagName !== "BR") {
+        Array.from(node.childNodes).forEach(wrapLetters);
+      }
+    }
+
+    Array.from(nameEl.childNodes).forEach(wrapLetters);
+  }
+
   // Word-by-word tagline reveal
   var tagline = document.getElementById("hero-tagline");
   if (tagline && !reduceHero) {
