@@ -542,14 +542,16 @@ h2:hover::after {
 /* Staggered child reveals — only active when JS adds .reveal to sections */
 .section.reveal .project-card,
 .section.reveal .card,
-.section.reveal .timeline > li {
+.section.reveal .timeline > li,
+.section.reveal .quote-list blockquote {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.48s ease, transform 0.48s cubic-bezier(0.2, 0, 0.2, 1);
 }
 .section.reveal .project-card.child-in,
 .section.reveal .card.child-in,
-.section.reveal .timeline > li.child-in {
+.section.reveal .timeline > li.child-in,
+.section.reveal .quote-list blockquote.child-in {
   opacity: 1;
   transform: translateY(0);
 }
