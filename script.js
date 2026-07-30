@@ -3,6 +3,33 @@
 
   var reduceHero = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Radiating hero lines draw-in
+  if (!reduceHero) {
+    var heroLines = document.querySelectorAll(".hero-line");
+    heroLines.forEach(function (path, i) {
+      var len = path.getTotalLength();
+      path.style.strokeDasharray = len + " " + len;
+      path.style.strokeDashoffset = len;
+      setTimeout(function () {
+        path.style.transition = "stroke-dashoffset " + (1.4 + i * 0.08) + "s cubic-bezier(0.4, 0, 0.2, 1)";
+        path.style.strokeDashoffset = "0";
+      }, 200 + i * 100);
+    });
+
+    // Parallax on scroll
+    var heroEl = document.querySelector(".hero");
+    var heroLinesEl = document.querySelector(".hero-lines");
+    if (heroEl && heroLinesEl) {
+      var heroH = heroEl.offsetHeight;
+      window.addEventListener("scroll", function () {
+        var sy = window.scrollY;
+        if (sy < heroH) {
+          heroLinesEl.style.transform = "translateY(" + (sy * 0.18).toFixed(1) + "px)";
+        }
+      }, { passive: true });
+    }
+  }
+
   // Letter-by-letter h1 reveal
   var nameEl = document.querySelector(".hero h1");
   if (nameEl && !reduceHero) {
