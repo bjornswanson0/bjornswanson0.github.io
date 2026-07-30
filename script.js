@@ -134,7 +134,7 @@
             entry.target.classList.add("is-visible");
             observer.unobserve(entry.target);
             // Stagger child cards / list items
-            var kids = Array.from(entry.target.querySelectorAll(".project-card, .card, .timeline-ol > li"));
+            var kids = Array.from(entry.target.querySelectorAll(".project-card, .card, .timeline > li"));
             kids.forEach(function (el, i) {
               setTimeout(function () { el.classList.add("child-in"); }, i * 90 + 80);
             });
