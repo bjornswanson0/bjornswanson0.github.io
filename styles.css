@@ -250,64 +250,12 @@ html { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--accent) 
   pointer-events: none;
 }
 
-/* Cursor spotlight */
-.hero-spotlight {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    circle 520px at var(--mx, 50%) var(--my, 50%),
-    color-mix(in srgb, var(--accent) 9%, transparent) 0%,
-    transparent 68%
-  );
-  opacity: 0;
-  transition: opacity 0.9s ease;
-}
-.hero.spotlight-on .hero-spotlight { opacity: 1; }
-
-/* Animated radiating lines */
-.hero-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-line {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  opacity: 0.22;
-}
-
-/* Colour variety across the 14 radiating lines */
-.hero-lines path:nth-child(2)  { stroke: #c87941; }          /* amber */
-.hero-lines path:nth-child(3)  { stroke: #4a9b74; }          /* sage */
-.hero-lines path:nth-child(4)  { stroke: #7c6aaa; }          /* slate purple */
-.hero-lines path:nth-child(6)  { stroke: #c87941; opacity: 0.18; }
-.hero-lines path:nth-child(7)  { stroke: #4a9b74; opacity: 0.18; }
-.hero-lines path:nth-child(8)  { stroke: #7c6aaa; opacity: 0.18; }
-.hero-lines path:nth-child(10) { stroke: #3a8a9b; }          /* teal */
-.hero-lines path:nth-child(11) { stroke: #c87941; opacity: 0.15; }
-.hero-lines path:nth-child(12) { stroke: #4a9b74; opacity: 0.15; }
-.hero-lines path:nth-child(13) { stroke: #3a8a9b; opacity: 0.15; }
-.hero-lines path:nth-child(14) { stroke: #7c6aaa; opacity: 0.15; }
 
 .hero-inner {
   position: relative;
   z-index: 2;
   max-width: 48rem;
   margin: 0 auto;
-}
-
-@keyframes avatar-pulse {
-  0%   { box-shadow: 0 6px 20px rgba(28,27,24,0.13), 0 0 0 0 color-mix(in srgb, var(--accent) 35%, transparent); }
-  70%  { box-shadow: 0 6px 20px rgba(28,27,24,0.13), 0 0 0 9px color-mix(in srgb, var(--accent) 0%, transparent); }
-  100% { box-shadow: 0 6px 20px rgba(28,27,24,0.13), 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
 }
 
 .hero-avatar {
@@ -317,7 +265,7 @@ html { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--accent) 
   overflow: hidden;
   margin: 0 auto 1.75rem;
   border: 2px solid var(--hairline);
-  animation: hero-in 0.5s ease-out 0s both, avatar-pulse 2.8s ease-out 2s infinite;
+  animation: hero-in 0.5s ease-out 0s both;
 }
 
 .hero-avatar img {
@@ -558,24 +506,6 @@ h2:hover::after {
 
 .section p + p { margin-top: 1rem; }
 
-/* Large faded section numbers — decorative, behind content */
-.section[data-num] { overflow: clip; }
-.section[data-num]::after {
-  content: attr(data-num);
-  position: absolute;
-  top: 0.25rem;
-  right: -0.1em;
-  font-family: var(--serif);
-  font-size: clamp(7rem, 22vw, 13rem);
-  font-weight: 600;
-  color: var(--ink);
-  opacity: 0.042;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
 
 
 /* closing-statement paragraphs in Now and Next read as serif conclusions */
@@ -658,10 +588,6 @@ h2:hover::after {
 
 /* ---------- timeline ---------- */
 
-.timeline li:nth-child(1)::after { animation-delay: 0s; }
-.timeline li:nth-child(2)::after { animation-delay: 0.65s; }
-.timeline li:nth-child(3)::after { animation-delay: 1.3s; }
-.timeline li:nth-child(4)::after { animation-delay: 1.95s; }
 
 
 .timeline {
@@ -689,12 +615,6 @@ h2:hover::after {
   border: 2px dashed var(--accent);
 }
 
-@keyframes dot-pulse {
-  0% { transform: scale(1); opacity: 0.5; }
-  70% { transform: scale(2.4); opacity: 0; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-
 .timeline li::before {
   content: "";
   position: absolute;
@@ -705,19 +625,6 @@ h2:hover::after {
   border-radius: 50%;
   background: var(--accent);
   border: 2.5px solid var(--bg);
-}
-
-.timeline li::after {
-  content: "";
-  position: absolute;
-  left: -13px;
-  top: calc(0.55em - 6px);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: dot-pulse 2.8s ease-out infinite;
-  opacity: 0;
 }
 
 .timeline-num {
@@ -778,42 +685,9 @@ h2:hover::after {
   box-shadow: 0 12px 32px rgba(28, 27, 24, 0.09);
 }
 
-.card-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.card:hover .card-glow { opacity: 1; }
-
 .card:nth-child(1) { border-top: 2px solid rgba(58, 118, 166, 0.45); }
 .card:nth-child(2) { border-top: 2px solid rgba(245, 158, 11, 0.45); }
 .card:nth-child(3) { border-top: 2px solid rgba(52, 211, 153, 0.45); }
-
-.card:nth-child(1) .card-glow {
-  background:
-    linear-gradient(180deg, rgba(58,118,166,0.2) 0%, rgba(58,118,166,0.08) 40%, transparent 88%),
-    radial-gradient(700px 450px at 80% -10%, rgba(58,118,166,0.6), transparent 60%),
-    radial-gradient(600px 400px at 20% 120%, rgba(58,118,166,0.45), transparent 72%);
-}
-
-.card:nth-child(2) .card-glow {
-  background:
-    linear-gradient(180deg, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0.08) 40%, transparent 88%),
-    radial-gradient(700px 450px at 80% -10%, rgba(245,158,11,0.55), transparent 60%),
-    radial-gradient(600px 400px at 20% 120%, rgba(245,158,11,0.4), transparent 72%);
-}
-
-.card:nth-child(3) .card-glow {
-  background:
-    linear-gradient(180deg, rgba(52,211,153,0.2) 0%, rgba(52,211,153,0.08) 40%, transparent 88%),
-    radial-gradient(700px 450px at 80% -10%, rgba(52,211,153,0.5), transparent 60%),
-    radial-gradient(600px 400px at 20% 120%, rgba(52,211,153,0.4), transparent 72%);
-}
 
 .card h3 {
   font-family: var(--serif);
